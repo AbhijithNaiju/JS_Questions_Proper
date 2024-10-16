@@ -1,6 +1,7 @@
 var printLocation;
 var printValue;
-
+var inputLocation="numberOne";
+printOutput("answerCalculator","0");
 function printOutput(printLocation,printValue)
 {
 	document.getElementById(printLocation).innerHTML = printValue;
@@ -16,25 +17,28 @@ function checkIsEmpty(checkValue)
 		return true;
 	}
 }
-function operationAdd()
+function selectInput(inputMouseSelect)
 {
-	document.getElementById("calculatorOperator").value="+";
+	inputLocation=inputMouseSelect;
 }
-function operationSub()
+function operationSelect(operatorInput)
 {
-	document.getElementById("calculatorOperator").value="-";
+	document.getElementById("calculatorOperator").value=operatorInput;
+	inputLocation="numberTwo";
 }
-function operationMultiply()
+function selectDigit(valueInput)
 {
-	document.getElementById("calculatorOperator").value="×";
+	document.getElementById(inputLocation).value+=valueInput;
 }
-function operationDivide()
+function clearValues()
 {
-	document.getElementById("calculatorOperator").value="÷";
+	document.getElementById("numberOne").value="";
+	document.getElementById("numberTwo").value="";
+	inputLocation="numberOne";
+	printOutput("answerCalculator","0");
 }
-
 function calculator()
-{
+{	
 	let num1=document.getElementById("numberOne").value;
 	let num2=document.getElementById("numberTwo").value;
 	let operator=document.getElementById("calculatorOperator").value
@@ -75,3 +79,4 @@ function calculator()
 		printOutput("error","Please enter the number");
 	}	
 }
+	

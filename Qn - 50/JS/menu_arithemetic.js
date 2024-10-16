@@ -16,58 +16,53 @@ function checkIsEmpty(checkValue)
 		return true;
 	}
 }
-function printMenuArithemetic()
-{
-	document.getElementById("calculateButton").style.display = "unset";
-	document.getElementById("menuInputContainer").style.display = "unset";
-	document.getElementById("menuShowButton").style.display = "none";
-}
 
 function findArithemetic()
 {
-	let num1=document.getElementById("num1").value;
-	let num2=document.getElementById("num2").value;
-	let operator=document.getElementById("operator").value
-	if(checkIsEmpty(operator))
+	let operator=prompt(" 1 - Add \n 2 - Substract \n 3 - Multiply \n 4 - Division \n 5 - Exit \n Select the menu item");
+	while(operator!="5")
 	{
-		printOutput("error","");
-		num1=parseInt(num1);
-		num2=parseInt(num2);
-		switch(operator)
+		let num1=prompt("Enter number 1");
+		let num2=prompt("Enter number 2");
+		if(checkIsEmpty(num1) && checkIsEmpty(num2))
 		{
-			case "1":
-				printOutput("answerArithemetic",num1+num2);
-				break;
-			case "2":
-				printOutput("answerArithemetic",num1-num2);
-				break;
-			case "3":
-				printOutput("answerArithemetic",num1*num2);
-				break;
-			case "4":
-				if(num2==0)
-				{
-					printOutput("error","Math Error");
-					printOutput("answerArithemetic","");
-				}
-				else
-				{
-					printOutput("answerArithemetic",num1/num2);
-				}
-				break;
-			case "5":
-				document.getElementById("calculateButton").style.display = "none";
-				document.getElementById("menuInputContainer").style.display = "none";
-				document.getElementById("menuShowButton").style.display = "unset";
-				printOutput("error","");
-				break;
-			default:
-				printOutput("error","Please enter a valid operator");
-				printOutput("answerArithemetic","");
+			printOutput("error","");
+			num1=Number(num1);
+			num2=Number(num2);
+			switch(operator)
+			{
+				case "1":
+					alert("Sum = "+ (num1+num2));
+					break;
+				case "2":
+					alert("Difference = "+ (num1-num2));
+					break;
+				case "3":
+					alert("Product = "+(num1*num2));
+					break;
+				case "4":
+					if(num2==0)
+					{
+						alert("Math Error");
+					}
+					else
+					{
+						alert("Quotient = "+(num1/num2));
+					}
+					break;
+				case "5":
+					printOutput("error","");
+					break;
+				default:
+					alert("Please enter a valid operator");
+			}
 		}
+		else
+		{
+			alert("Please Enter the numbers");
+			continue;
+		}
+		operator=prompt(" 1 - Add \n 2 - Substract \n 3 - Multiply \n 4 - Division \n 5 - Exit \n Select the menu item");
 	}
-	else
-	{
-		printOutput("error","Please select the operation");
-	}
+	printOutput("error","Program Ended");
 }

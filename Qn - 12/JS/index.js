@@ -22,10 +22,12 @@ function checkIsEmpty(checkValue)
 // Qn12
 function swapNumbers()
 {
-	let numberOne=parseInt(document.getElementById("numberOne").value);
-	let numberTwo=parseInt(document.getElementById("numberTwo").value);
-	if(checkIsEmpty(num1) &&checkIsEmpty(num2))
+	let numberOne=document.getElementById("numberOne").value;
+	let numberTwo=document.getElementById("numberTwo").value;
+	if(checkIsEmpty(numberOne) && checkIsEmpty(numberTwo))
 	{
+		numberOne=Number(numberOne);
+		numberTwo=Number(numberTwo);
 		printOutput("answerBeforeSwap","Number 1: "+numberOne + ",  Number 2: " + numberTwo);
 		numberOne=numberOne+numberTwo;
 		numberTwo=numberOne-numberTwo;

@@ -8,24 +8,48 @@
 	</head>
 	<body>
 		<div>
+			<div class="question">
+				<span>20 Program to create a simple calculator</span>
+			</div>
 			<form class="main">
-				<div class="question">
-					<span>20 Program to create a simple calculator</span>
+
+				<div class="d-flex justify-content-around calculator_output ">
+					<input type="number" id="numberOne"  readonly  onfocus=selectInput("numberOne")>
+					<input type="text" id="calculatorOperator" value="+" readonly >
+					<input type="" id="numberTwo"  readonly onfocus=selectInput("numberTwo")>
 				</div>
-				<div>
-					<input type="number" id="numberOne" placeholder="Number 1">
-					<input type="text" readonly id="calculatorOperator" value="+">
-					<input type="number" id="numberTwo" placeholder="Number 2">
+				<div class="calculator_output d-flex justify-content-between px-3">
+					=<label id="answerCalculator"></label>
 				</div>
-				<div class="calculator_output">
-					<span>Answer : </span>
-					<label id="answerCalculator"></label>
+				<div class="d-flex justify-content-between">
+					<button type="button" onclick=selectDigit("1")>1</button>
+					<button type="button" onclick=selectDigit("2")>2</button>
+					<button type="button" onclick=selectDigit("3")>3</button>
+					<button type="button" class="operation_button" onclick=operationSelect("+")>+</button>
+
 				</div>
-				<button type="button" onclick="operationAdd()">+</button>
-				<button type="button" onclick="operationSub()">-</button>
-				<button type="button" onclick="operationMultiply()">×</button>
-				<button type="button" onclick="operationDivide()">÷</button>
-				<button type="button" onclick="calculator()">=</button>
+				<div class="d-flex justify-content-between">
+					<button type="button" onclick=selectDigit("4") >4</button>
+					<button type="button" onclick=selectDigit("5") >5</button>
+					<button type="button" onclick=selectDigit("6") >6</button>
+					<button type="button" class="operation_button" onclick=operationSelect("-")> -</button>
+				</div>
+				<div class="d-flex justify-content-between">
+					<button type="button" onclick=selectDigit("7") >7</button>
+					<button type="button" onclick=selectDigit("8")>8</button>
+					<button type="button" onclick=selectDigit("9")>9</button>
+					<button type="button" class="operation_button" onclick=operationSelect("×")>×</button>
+				</div>
+				<div class="d-flex justify-content-between">
+					<button type="button" onclick=selectDigit("00")>00</button>
+					<button type="button" onclick=selectDigit("0")>0</button>
+					<button type="button" class="operation_button" class="" onclick="calculator()">=</button>
+					<button type="button" class="operation_button" onclick=operationSelect("÷")>÷</button>
+				</div>
+
+				<div class="d-flex justify-content-between">
+					<button type="button" class="clear_button" onclick="clearValues()">CLEAR</button>
+				</div>
 				<div id="error"></div>
 			</form>
 		</div>	
